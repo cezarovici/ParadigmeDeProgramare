@@ -1,0 +1,4 @@
+# Exercitiu 2
+### Cerinta
+
+Să se inițializeze un repository git într-un container docker și să se implementeze o aplicație(într-un limbaj la alegere) care să citească un fișier text, să proceseze conținutul astfel încât să elimine semnele de punctuație, să execute alte două procesări la alegere (eliminare spații multiple,lower/upper case, filtrare cuvinte cu un anumit număr de litere, filtrare numere, etc) și să afișeze rezultatul la consolă. Pentru fiecare funcționalitate nou adăugată (citirea unui fișier, procesareaconținutului, afișarea rezultatului, etc), se execută git add, git commit și git push. Se prezintăpelaptop sau on remote.
