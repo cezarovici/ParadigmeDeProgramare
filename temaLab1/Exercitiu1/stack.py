@@ -65,7 +65,41 @@ def infix_to_postfix(expression):
 
 
 
-print(infix_to_postfix("A+B"))
+def evalPolish(polish):
+    stack = Stack()
+    precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
 
 
+    for symbol in polish:
+        print(stack.peek())
+        print(polish)
+        if symbol.isdigit():
+            stack.push(symbol)
+            continue
+        
+        if symbol == ' ':
+            continue
 
+        if symbol in precedence:
+            op1 = int(stack.pop())
+            op2 = int(stack.pop())
+
+            if symbol == '+':
+                stack.push(op1+op2)
+
+            if symbol == '-':
+                stack.push(op2-op1)
+           
+            if symbol == '*':
+                stack.push(op1*op2)
+           
+            if symbol == '/':
+                stack.push(op2/op1)
+ 
+            if symbol == '^':
+                stack.push(op2^op1)
+
+    return stack.pop()
+
+
+print((evalPolish(infix_to_postfix('3 * (2 + 4) / (1 + 5)'))))

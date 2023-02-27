@@ -4,7 +4,7 @@
 
 # import everything from tkinter module
 from tkinter import *
-
+from stack import *
 # globally declare the expression variable
 expression = ""
 
@@ -37,7 +37,7 @@ def equalpress():
         # eval function evaluate the expression
         # and str function convert the result
         # into string
-        total = str(eval(expression))
+        total = str(evalPolish(infix_to_postfix(expression)))
 
         equation.set(total)
 
