@@ -6,8 +6,6 @@ import java.util.List;
 
 class Main{
 
-
-
     private static List<Integer> generateRandomNumbers(){
         Context function = Context.newBuilder().allowAllAccess(true).build();
         Value result = function.eval("python",
