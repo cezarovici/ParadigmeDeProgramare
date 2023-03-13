@@ -30,8 +30,8 @@ fun Search(contacts: List<Contact>, toSearch: String,option:SearchOption) {
             }
         }
         SearchOption.byName -> {
-            for (person in contacts){
-                if(person.Name == toSearch){
+            for (person in contacts) {
+                if (person.Name == toSearch) {
                     print("There is a person with this name and it is: ")
                     person.Print()
                 }
@@ -54,6 +54,9 @@ fun main(args : Array<String>){
 
     Search(agenda,"Mihai",SearchOption.byName)
     Search(agenda,"0231450211",SearchOption.byPhone)
+    Search(agenda,"Cezar",SearchOption.byName)
+
+
 
 
 //    println("Agenda dupa eliminare contact [George]:")
