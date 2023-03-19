@@ -1,11 +1,9 @@
 package ro.miketuiasi.ro;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import ro.miketuiasi.ro.Library;
+import com.google.gson.GsonBuilder
 
-public class JsonPrinter {
-   fun print(library: Library){
+class JsonPrinter : Printer{
+   override fun print(library: Library){
        val gsonPretty = GsonBuilder().setPrettyPrinting().create();
 
         print(gsonPretty.toJson(library))

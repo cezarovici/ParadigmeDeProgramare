@@ -45,7 +45,8 @@ open class Book(
                 getAuthor() +
                 "\n with this content " +
                 getContent() +
-                "\n\n Published by " +
-                getPublisher()
+                "\n Published by " +
+                getPublisher()+
+                "\n And cost: "+getPrice()
     }
 }

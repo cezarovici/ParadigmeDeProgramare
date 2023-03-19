@@ -10,4 +10,5 @@ fun main(args: Array<String>) {
   val library = Library(books);
 
   JsonPrinter().print(library)
+  LibraryPrinter().print(library)
 }

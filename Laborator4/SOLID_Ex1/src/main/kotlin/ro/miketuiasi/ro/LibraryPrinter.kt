@@ -1,18 +1,12 @@
-import ro.miketuiasi.ro.Book
+package ro.miketuiasi.ro
 
-class LibraryPrinter {
-    fun printBooksRaw(books: Set<Book>){
+class LibraryPrinter : Printer{
+    override fun print(library: Library){
+     val books = library.getBooks()
+
         for (book in books){
-            print("\n\nThis is a book")
-            book.toString()
+            print(book.toString())
         }
     }
 
-    fun printHTML(books: Set<Book>){
-
-    }
-
-    fun printJSON(books: Set<Book>){
-
-    }
 }
