@@ -1,9 +1,9 @@
 package ro.mike.tuiasi
 
 class CardPayment (
-    bankAccount: BankAccount
-){
-    fun pay(fee:Double):Boolean{
-        return true
+   private var bankAccount: BankAccount
+):PaymentMethod{
+    override fun pay(fee:Double):Boolean{
+        return this.bankAccount.updateAmount(fee)
     }
 }
