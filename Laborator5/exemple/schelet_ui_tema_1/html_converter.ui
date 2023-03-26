@@ -2,6 +2,7 @@
 <ui version="4.0">
  <class>HTMLConverter</class>
  <widget class="QWidget" name="HTMLConverter">
+  
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,22 +11,31 @@
     <height>295</height>
    </rect>
   </property>
+
   <property name="windowTitle">
    <string>HTML Converter</string>
   </property>
+
   <layout class="QGridLayout" name="gridLayout">
+   
+
+   // This is the first orizontal line
    <item row="0" column="0" colspan="3">
     <layout class="QHBoxLayout" name="horizontalLayout">
+    
+    // This represents the input box
      <item>
       <widget class="QLineEdit" name="path_line_edit">
        <property name="readOnly">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="placeholderText">
         <string>/path/to/a/text/file</string>
        </property>
       </widget>
      </item>
+   
+    // This represents the browse button
      <item>
       <widget class="QPushButton" name="browse_btn">
        <property name="text">
@@ -34,20 +44,20 @@
       </widget>
      </item>
     </layout>
+    
    </item>
-   <item row="1" column="1">
-    <spacer name="verticalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>92</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
+   
+     <item row="1" column="0">
+      <widget class="QLineEdit" name="result">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="placeholderText">
+        <string>/HTML Output</string>
+       </property>
+      </widget>
+     </item>
+   
    <item row="2" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
@@ -56,29 +66,21 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>124</width>
-       <height>20</height>
+       <height>100</height>
       </size>
      </property>
     </spacer>
    </item>
-   <item row="2" column="1">
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QLabel" name="todo0_lbl">
-       <property name="text">
-        <string>TODO_0: Add a Text Edit field to display the result of processing</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="todo1_lbl">
-       <property name="text">
-        <string>TODO_1: Add a Push Button for each processing operation</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
+   
+
+    <item row="1" column="2">
+     <widget class="QPushButton" name="convert_btn">
+      <property name="text">
+        <string>Convert</string>
+      </property>
+     </widget>
+    </item>
+
    <item row="2" column="2">
     <spacer name="horizontalSpacer_2">
      <property name="orientation">
@@ -92,6 +94,7 @@
      </property>
     </spacer>
    </item>
+   
    <item row="3" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
@@ -104,6 +107,7 @@
       </size>
      </property>
     </spacer>
+   
    </item>
   </layout>
  </widget>

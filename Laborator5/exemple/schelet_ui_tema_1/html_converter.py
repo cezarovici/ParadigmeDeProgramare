@@ -17,8 +17,10 @@ class HTMLConverter(QWidget):
 
     def __init__(self):
         super(HTMLConverter, self).__init__()
+
         ui_path = os.path.join(self.ROOT_DIR, 'html_converter.ui')
         loadUi(ui_path, self)
+        
         self.browse_btn.clicked.connect(self.browse)
         self.file_path = None
 
