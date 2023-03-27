@@ -11,6 +11,10 @@ def debug_trace(ui=None):
     set_trace()
     # QtCore.pyqtRestoreInputHook()
 
+# This is the function that will be used to parse the input file
+def parseInput(self):
+    return self.path_line_edit.text()
+     
 
 class HTMLConverter(QWidget):
     ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -22,20 +26,21 @@ class HTMLConverter(QWidget):
         loadUi(ui_path, self)
         
         self.browse_btn.clicked.connect(self.browse)
-        self.file_path = None
 
     def browse(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
+        searchPath=parseInput(self)
         file, _ = QFileDialog.getOpenFileName(self,
                                               caption='Select file',
-                                              directory='',
+                                              directory=searchPath,
                                               filter="Text Files (*.txt)",
                                               options=options)
         if file:
             self.file_path = file
-            self.path_line_edit.setText(file)
+            self.result.setText(file)
             print(file)
+
 
 
 if __name__ == '__main__':
