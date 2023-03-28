@@ -1,0 +1,7 @@
+<h1>This is a heading</h1>
+
+<p>This is a paragraph with some <strong>bold</strong> and <em>italic</em> text.</p>
+
+<h2>Another heading</h2>
+
+<p>This is another paragraph with some <code>code</code> and a <a href="https://www.example.com/">link</a>.</p>
