@@ -1,11 +1,8 @@
-import GenericFile
+from GenericFile import *
 
 class TextUNICODE(GenericFile):
-    path_absolute = None
-    frequency = None
-
     def get_path(self):
-        return self.path_absolute
+        super.get_path()
      
     def get_freq(self):
-        return self.frequency
+        super.get_freq()        

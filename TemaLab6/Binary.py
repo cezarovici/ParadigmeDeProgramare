@@ -1,4 +1,4 @@
-import GenericFile
+from GenericFile import GenericFile
 
 class Binary(GenericFile):
     path_absolute = None
@@ -8,4 +8,4 @@ class Binary(GenericFile):
         return self.path_absolute
      
     def get_freq(self):
-        return self.frequency
+        return
