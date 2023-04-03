@@ -5,10 +5,10 @@ class GenericFile:
         self.path = path
         self.freq = freq
         
-    def get_path():
+    def get_path(self):
         raise NotImplementedError
 
-    def get_freq():
+    def get_freq(self):
         raise NotImplementedError
 
     
