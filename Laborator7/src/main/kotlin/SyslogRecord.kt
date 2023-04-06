@@ -1,32 +1,24 @@
 import java.sql.Timestamp
 
 class SyslogRecord (
-    public var line: String
+    private var line: String
 ){
-    private lateinit var timestamp: String
-    private lateinit var hostName : String
-    private lateinit var applicationName: String
-    private lateinit var pid: String
-    private lateinit var logEntry: String
+    private val parts = line.splitToSequence(' ')
+        .filter { it.isNotBlank() }
+        .toList()
 
-    fun setTimeStamp(){
+    private val timestamp = parts[0] + parts[1] + parts[2]
+    private val hostName = parts[3]
+     val applicationName = parts[4].substringBefore("[")
+     val pid = parts[4].substringAfter("[").substringBefore("]")
+     val logEntry = parts.drop(6).joinToString(separator = " ")
 
+    override fun toString(): String {
+        return "Start-Date: $timestamp\n" +
+                "Requested-By: $hostName\n" +
+                "Application Name: $applicationName\n" +
+                "PID: $pid\n" +
+                "Log Entry: $logEntry\n"
     }
-
-    fun setHostName(){
-
-    }
-
-    fun setApplicationName(){
-
-    }
-
-    fun setPid(){
-
-    }
-
-    fun setLogEntry(){
-
-    }
-
 }
+

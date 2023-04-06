@@ -6,14 +6,14 @@ import SyslogRecord
 import java.util.*
 
 fun  readFile(path: String):MutableList<SyslogRecord?>{
-    var content = mutableListOf<SyslogRecord?>()
+    val content = mutableListOf<SyslogRecord?>()
+    var lineNumber = 0;
 
     try {
         val scanner = Scanner(File(path))
-        while (scanner.hasNextLine()) {
-            val line = scanner.nextLine()
-
-            content.add(SyslogRecord(line))
+        while (scanner.hasNextLine() || lineNumber < 50) {
+            lineNumber++;
+            content.add(SyslogRecord(scanner.nextLine()))
         }
     }catch (e: IOException){
         e.printStackTrace();
@@ -24,13 +24,30 @@ fun  readFile(path: String):MutableList<SyslogRecord?>{
 
 fun main(args: Array<String>) {
     val path = "/var/log/syslog";
-    var sysLogs =readFile(path)
-    val seq = sequenceOf(sysLogs)
-//Apr  4 09:36:30 cezar-ThinkPad-P1-Gen-3 wpa_supplicant[774]: wlp0s20f3: CTRL-EVENT-SIGNAL-CHANGE above=0 signal=-61 noise=9999 txrate=520000
+    val sysLogs = readFile(path)
+
     for (syslog in sysLogs){
         if (syslog != null) {
-            println(syslog.line)
+            println(syslog.toString())
         }
+    }
+
+    val sysMap = mutableMapOf<String,SyslogRecord?> ()
+
+
+    val syslogMapped = sysLogs.asSequence()
+        .filter { it?.pid != "" }
+        .sortedBy { it?.logEntry
+        }
+        .forEach {
+            if (it != null) {
+                sysMap[it.applicationName] = it
+            }
+        }
+
+
+    for((key,value) in sysMap){
+        print("$key -> $value")
     }
 
 
