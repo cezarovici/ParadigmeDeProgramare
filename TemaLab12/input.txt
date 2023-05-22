@@ -1,0 +1,5 @@
+This is a sample text file for encryption. Some words will be encrypted using the Caesar cipher.
+The offset is 3, so words with lengths between 4 and 7 characters will be shifted by 3 positions.
+Encryption is a common technique used to protect sensitive information.
+Caesar cipher is a simple substitution cipher where each letter is shifted a certain number of positions.
+The encrypted words should be decrypted using the same offset to retrieve the original text.
